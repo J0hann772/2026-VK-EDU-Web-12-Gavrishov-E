@@ -10,22 +10,26 @@
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    <div class="header">
-        <h2><a href="index.html" class="logo-link">AskPupkin</a></h2>
-        <div id="main-search">
-            <input class="search-input" type="text" name="username" placeholder="Search">
-            <input type="submit" value="ASK!" class="btn-search">
+    <div class="container">
+        <div class="header">
+            <h2><a href="index.html" class="logo-link">AskPupkin</a></h2>
+            <div id="main-search">
+                <input class="search-input" type="text" name="username" placeholder="Search">
+                <input type="submit" value="ASK!" class="btn-search">
+            </div>
+            <div class="user-info">
+                <img src="static/img/ava.png" alt="avatar" class="avatar">
+                <div>
+                    <p class="user-name">John Doe</p>
+                    <a href="settings.html">settings</a>
+                    <a href="logout.html">log out</a>
+                </div>            
+            </div>
         </div>
-        <div class="user-info">
-            <img src="static/img/ava.png" alt="avatar" class="avatar">
-            <div>
-                <p class="user-name">John Doe</p>
-                <a href="settings.html">settings</a>
-                <a href="logout.html">log out</a>
-            </div>            
-        </div>
+        <hr class="hr">
     </div>
-    <hr class="hr">
+       
+    
 
     <main>
     
@@ -43,7 +47,7 @@
             <div class="row">
                 
                 
-                <div class="col-md-9">
+                <div class="col-md-8">
                     <div class="list-questions">
                         
                         <div class="question-item mb-4 container">
@@ -115,8 +119,8 @@
                     </div>
                 </div>
 
-            
-                <div class="col-md-3">
+
+                <div class="col-md-3 ms-auto">
                     <h3>Popular Tags</h3>
                     <div class="tags-cloud">
                         <a href="#" class="tag-small">perl</a>
