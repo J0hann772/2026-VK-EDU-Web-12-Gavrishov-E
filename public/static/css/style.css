@@ -64,3 +64,141 @@
     border-top: 2px gray solid;
 }
 
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.user-name {
+    margin-bottom: 2px;
+}
+
+.link {
+    font-size: 16px;
+}
+
+.text-question {
+    font-size: 20px;
+}
+
+.tag-small{
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+.tag-medium{
+    text-decoration: none;
+    font-size: 20px;
+    margin: 4px;
+}
+
+.tag-large{
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.text-danger{
+    color: red;
+}
+
+.text-green{
+    color: green;
+}
+
+.text-yellow{
+    color: orange;
+}
+.question-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+/* Общий контейнер счетчика */
+.custom-spinner {
+  display: inline-flex;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: monospace; /* Для четкого отображения цифр */
+  height: 40px;
+}
+
+/* Поле с числом (левая часть) */
+#spinner-input {
+  width: 45px;
+  border: none;
+  border-right: 2px solid #000000;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  background: #ffffff;
+  cursor: text;
+}
+
+/* Контейнер для кнопок (правая часть) */
+.spinner-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 25px;
+}
+
+/* Общие стили для стрелочек */
+.spinner-buttons button {
+  flex: 1;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.1s;
+}
+
+/* Разделительная линия между верхней и нижней стрелкой */
+.spin-up {
+  border-bottom: 1px solid #000000 !important;
+}
+
+/* Эффект при наведении на стрелочку */
+.spinner-buttons button:hover {
+  background: #eeeeee;
+}
+
+.question-item {
+    padding: 10px;
+    border: 3px solid #050101;
+    margin-bottom: 10px;
+}
+
+.btn-pagin {
+    border: 2px black solid;
+    padding: 6px 12px;
+    box-shadow: 3px 3px 3px rgb(3, 0, 0);
+    text-decoration: none;
+    color: black;
+}
+
+.btn-pagin:hover {
+    background-color: #a9aca9;
+    color: white;
+}
+
+.btn-pagin:active {
+    background-color: #4e504e;
+    color: white;
+}
