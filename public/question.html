@@ -6,17 +6,21 @@
 
     <title>Title</title>
 
+
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    
 
-    
-    <main>
-    
-        <div class="container">
-                <div class="header">
+
+
+
+
+    <div class="container">
+        <div class="header">
             <h2><a href="/" class="logo-link">AskPupkin</a></h2>
             <div id="main-search">
                 <input class="search-input" type="text" name="username" placeholder="Search">
@@ -24,36 +28,124 @@
             </div>
         </div>
         <hr class="hr">
+        <main class="main">
             <div class="row">
-                <h2 class="mb-3">New Question</h2>
-                <div class="col-md-8">
-                    <div class="row mb-3 align-items-center">
-                        <label id = "default-text" for="exampleFormControlInput1" class="form-label col-sm-1 col-form-label">Title</label>
-                        <div class="col-sm-11">
-                            <input type="email" class="form-control col-sm-10 text-input-question" id="exampleFormControlInput1" placeholder="How to create a Django project?">
+                <div class="col-md-9">
+
+                    <div class="question">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="">
+                                        <img src="static/img/author1.png" alt="avatar-main" class="avatar-main mb-4">
+                                        <div class="custom-spinner">
+                                            <input type="text" id="spinner-input" value="5" readonly>
+                                            <div class="spinner-buttons">
+                                                <button class="spin-up" id="spin-up">&#9650;</button>
+                                                <button class="spin-down" id="spin-down">&#9660;</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                    
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="main-quwstion">
+                                        <h3 class="question-title">How to build a moon park ?</h3>
+                                        <p class="question-text">
+                                            Lorem ipsum – dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </p>
+                                        <div class="d-flex gap-2">
+                                            <p>Tags: </p>
+                                            <a href="#">black-jack</a>
+                                            <a href="#">white-jack</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="hr">
+
+                    <div class="answers-list">
+                        <div class="answer-card card">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="">
+                                            <img src="static/img/author1.png" alt="avatar-main" class="avatar-main mb-4">
+                                            <div class="custom-spinner">
+                                                <input type="text" id="spinner-input" value="5" readonly>
+                                                <div class="spinner-buttons">
+                                                    <button class="spin-up" id="spin-up">&#9650;</button>
+                                                    <button class="spin-down" id="spin-down">&#9660;</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="main-quwstion">
+                                            <h3 class="question-title">How to build a moon park ?</h3>
+                                            <p class="question-text">
+                                                Lorem ipsum – dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                            </p>
+                                            <div>
+                                                <input type="checkbox" id="valid" name="interests" value="valid">
+                                                <label for="valid">Correct!</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer-card card">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="">
+                                            <img src="static/img/author1.png" alt="avatar-main" class="avatar-main mb-4">
+                                            <div class="custom-spinner">
+                                                <input type="text" id="spinner-input" value="5" readonly>
+                                                <div class="spinner-buttons">
+                                                    <button class="spin-up" id="spin-up">&#9650;</button>
+                                                    <button class="spin-down" id="spin-down">&#9660;</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="main-quwstion">
+                                            <h3 class="question-title">How to build a moon park ?</h3>
+                                            <p class="question-text">
+                                                Lorem ipsum – dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                            </p>
+                                            <div>
+                                                <input type="checkbox" id="valid1" name="interests" value="valid">
+                                                <label for="valid1">Correct!</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>
-                    <div class="row mb-3 align-items-center">
-                        <label id = "default-text" for="exampleFormControlTextarea1" class="form-label col-sm-1">Text</label>
-                        <div class="col-sm-11">
-                            <textarea class="form-control text-input-question" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your question here..."></textarea>
-                        </div>
-                        
+                    <hr class="hr">
+
+                    <div class="user-answer card p-0">
+
+                        <textarea class="user-answer-input form-control" name="user-answer" id="user-answer" placeholder="Enter your answer here..."></textarea>
                     </div>
-                    <div class="row mb-3 align-items-center">
-                        <label id = "default-text" for="exampleFormControlTextarea1" class="form-label col-sm-1">Tags</label>
-                        <div class="col-sm-11">
-                            <textarea class="form-control text-input-question" id="exampleFormControlTextarea1" rows="3" placeholder="Enter tags separated by commas..."></textarea>
-                        </div>
-                    </div>
-                    <div class="row mb-3 align-items-center">
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-11">
-                            <button type="button" class="btn-pagin">ASK!</button>
-                        </div>
-                    </div>
+
+
+
                 </div>
+
                 <div class="col-md-3 ms-auto">
                     <h3>Popular Tags</h3>
                     <div class="tags-cloud">
@@ -62,7 +154,7 @@
                         <a href="#" class="tag-small">TechnoPark</a>
                         <br>
                         <a href="#" class="tag-large text-danger">MySQL</a>
-                        <a href="#" class="tag-large text-success">django</a> 
+                        <a href="#" class="tag-large text-success">django</a>
                         <br>
                         <a href="#" class="tag-small">Mail.Ru</a>
                         <a href="#" class="tag-small">Voloshin</a>
@@ -78,15 +170,17 @@
                         <a href="#" class="member-link">Charlie Davis</a>
                         <a href="#" class="member-link">Eve Wilson</a>
                     </div>
-                </div> 
-            </div> 
-        </div> 
-        
-    </main>
+                </div>
+            </div>
+        </main>
 
-    <footer>
+    </div>
 
-    </footer>
+
+
+<footer>
+
+</footer>
 
 
 </body>

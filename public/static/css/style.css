@@ -70,6 +70,12 @@
     border-radius: 50%;
 }
 
+.avatar-main {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
 .user-info {
     display: flex;
     align-items: center;
@@ -124,6 +130,8 @@
     border-radius: 50%;
 }
 
+
+
 /* Общий контейнер счетчика */
 .custom-spinner {
   display: inline-flex;
@@ -132,6 +140,7 @@
   overflow: hidden;
   font-family: monospace; /* Для четкого отображения цифр */
   height: 40px;
+    width: 75px;
 }
 
 /* Поле с числом (левая часть) */
@@ -213,3 +222,19 @@
     color: #000000;
     font-size: 20px;
 }
+
+.card{
+    border: 1px solid #000000;
+    padding: 10px;
+    margin: 15px;
+}
+
+.user-answer-input{
+    height: 120px;
+
+    #display: block;
+    color: black;
+    #box-sizing: border-box;
+    font-size: 16px;
+}
+

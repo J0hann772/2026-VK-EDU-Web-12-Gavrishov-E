@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Title</title>
+
+
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+
+
+<main>
+
+    <div class="container">
+        <div class="header">
+            <h2><a href="/" class="logo-link">AskPupkin</a></h2>
+            <div id="main-search">
+                <input class="search-input" type="text" name="username" placeholder="Search">
+                <input type="submit" value="ASK!" class="btn-search">
+            </div>
+        </div>
+        <hr class="hr">
+        <div class="row">
+            <div class="col-md-9">
+                <h2 class="mb-4">Settings: Dr. Pepper</h2>
+
+                <!-- Обертка для всей формы -->
+                <div class="settings-form">
+
+                    <!-- 1. Поле Login -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="login">Login</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="login" name="login" placeholder="dr_pepper" value="dr_pepper">
+                        </div>
+                    </div>
+
+                    <!-- 2. Поле Email -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="email">Email</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="email" id="email" name="email" placeholder="dr.pepper@mail.ru" value="dr.pepper@mail.ru">
+                        </div>
+                    </div>
+
+                    <!-- 3. Поле NickName -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="nickname">NickName</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="nickname" name="nickname" placeholder="Dr. Pepper" value="Dr. Pepper">
+                        </div>
+                    </div>
+
+                    <!-- 4. Секция загрузки аватара -->
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label pt-2" for="avatar-input">Upload avatar</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <!-- Сама картинка аватара -->
+                            <div class="mb-2">
+                                <img src="static/img/author1.png" alt="avatar" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;">
+                            </div>
+                            <!-- Стандартная кнопка выбора файла в стиле Bootstrap -->
+                            <input class="form-control" type="file" id="avatar-input" name="avatar">
+                        </div>
+                    </div>
+
+                    <!-- 5. Кнопка Save -->
+                    <div class="row mt-4">
+                        <div class="col-sm-3"></div> <!-- Пустая колонка для сдвига кнопки -->
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn-pagin  px-4">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-3 ms-auto">
+                <h3>Popular Tags</h3>
+                <div class="tags-cloud">
+                    <a href="#" class="tag-small">perl</a>
+                    <a href="#" class="tag-medium text-danger">python</a>
+                    <a href="#" class="tag-small">TechnoPark</a>
+                    <br>
+                    <a href="#" class="tag-large text-danger">MySQL</a>
+                    <a href="#" class="tag-large text-success">django</a>
+                    <br>
+                    <a href="#" class="tag-small">Mail.Ru</a>
+                    <a href="#" class="tag-small">Voloshin</a>
+                    <a href="#" class="tag-small text-warning">Firefox</a>
+                </div>
+                <br>
+                <h3>Best Members</h3>
+                <div class="best-members d-flex flex-column gap-2">
+                    <a href="#" class="member-link">John Doe</a>
+                    <a href="#" class="member-link">Jane Smith</a>
+                    <a href="#" class="member-link">Alice Johnson</a>
+                    <a href="#" class="member-link">Bob Brown</a>
+                    <a href="#" class="member-link">Charlie Davis</a>
+                    <a href="#" class="member-link">Eve Wilson</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+
+</footer>
+
+
+</body>
+</html>
