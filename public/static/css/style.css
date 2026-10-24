@@ -238,3 +238,23 @@
     font-size: 16px;
 }
 
+.login-btn {
+    display: flex;
+    width: auto;
+}
+
+.login-btn:hover {
+    display: flex;
+    width: auto;
+    background-color: #5c636a;
+    color: white;
+}
+
+.login-btn:active {
+    display: flex;
+    width: auto;
+    background-color: #2c3034;
+    color: white;
+    
+}
+
