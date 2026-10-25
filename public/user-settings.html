@@ -33,7 +33,9 @@
                 <h2 class="mb-4">Settings: Dr. Pepper</h2>
 
                 <!-- Обертка для всей формы -->
-                <div class="settings-form">
+                <form class="settings-form" action="#" method="post" enctype="multipart/form-data">
+
+                    <div class="alert alert-danger">Не удалось сохранить настройки, проверьте поля формы</div>
 
                     <!-- 1. Поле Login -->
                     <div class="row align-items-center mb-3">
@@ -41,7 +43,8 @@
                             <label class="form-label m-0" for="login">Login</label>
                         </div>
                         <div class="col-sm-6">
-                            <input class="form-control" type="text" id="login" name="login" placeholder="dr_pepper" value="dr_pepper">
+                            <input class="form-control" type="text" id="login" name="login" maxlength="30" placeholder="dr_pepper" value="dr_pepper">
+                            <div class="form-text">До 30 символов</div>
                         </div>
                     </div>
 
@@ -51,7 +54,8 @@
                             <label class="form-label m-0" for="email">Email</label>
                         </div>
                         <div class="col-sm-6">
-                            <input class="form-control" type="email" id="email" name="email" placeholder="dr.pepper@mail.ru" value="dr.pepper@mail.ru">
+                            <input class="form-control is-invalid" type="email" id="email" name="email" placeholder="dr.pepper@mail.ru" value="dr.pepper@mail.ru">
+                            <div class="invalid-feedback">Введите корректный email</div>
                         </div>
                     </div>
 
@@ -88,7 +92,7 @@
                         </div>
                     </div>
 
-                </div>
+                </form>
 
 
             </div>

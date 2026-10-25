@@ -137,10 +137,24 @@
                     </div>
                     <hr class="hr">
 
-                    <div class="user-answer card p-0">
+                    <nav aria-label="Страницы ответов">
+                        <ul class="pagination">
+                            <li class="page-item disabled"><a class="page-link" href="#">Назад</a></li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Вперед</a></li>
+                        </ul>
+                    </nav>
 
-                        <textarea class="user-answer-input form-control" name="user-answer" id="user-answer" placeholder="Enter your answer here..."></textarea>
-                    </div>
+                    <form class="user-answer card p-0" action="#" method="post">
+                        <textarea class="user-answer-input form-control" name="user-answer" id="user-answer" maxlength="1000" placeholder="Enter your answer here..." aria-describedby="answer-hint answer-error"></textarea>
+                        <div id="answer-hint" class="form-text px-2">До 1000 символов</div>
+                        <div id="answer-error" class="invalid-feedback d-block px-2">Ответ не может быть пустым</div>
+                        <div class="p-2">
+                            <button type="submit" class="btn-pagin">Answer!</button>
+                        </div>
+                    </form>
 
 
 

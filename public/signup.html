@@ -29,7 +29,9 @@
                     <div class="container">
                         <div class="row">
                             <!-- Обертка для всей формы -->
-                            <div class="settings-form">
+                            <form class="settings-form" action="#" method="post" enctype="multipart/form-data">
+
+                                <div class="alert alert-danger">Не удалось зарегистрироваться, проверьте поля формы</div>
 
                                 <!-- 1. Поле Login -->
                                 <div class="row align-items-center mb-3">
@@ -37,7 +39,8 @@
                                         <label class="form-label m-0" for="login">Login</label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input class="form-control" type="text" id="login" name="login" placeholder="dr_pepper">
+                                        <input class="form-control" type="text" id="login" name="login" maxlength="30" placeholder="dr_pepper">
+                                        <div class="form-text">До 30 символов</div>
                                     </div>
                                 </div>
 
@@ -47,7 +50,8 @@
                                         <label class="form-label m-0" for="email">Email</label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input class="form-control" type="email" id="email" name="email" placeholder="dr.pepper@mail.ru">
+                                        <input class="form-control is-invalid" type="email" id="email" name="email" placeholder="dr.pepper@mail.ru">
+                                        <div class="invalid-feedback">Введите корректный email</div>
                                     </div>
                                 </div>
 
@@ -57,25 +61,27 @@
                                         <label class="form-label m-0" for="nickname">NickName</label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input class="form-control" type="text" id="nickname" name="nickname" placeholder="Dr. Pepper" >
+                                        <input class="form-control" type="text" id="nickname" name="nickname" maxlength="30" placeholder="Dr. Pepper" >
                                     </div>
                                 </div>
 
                                 <div class="row align-items-center mb-3">
                                     <div class="col-sm-3">
-                                        <label class="form-label m-0" for="nickname">Password</label>
+                                        <label class="form-label m-0" for="password">Password</label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input class="form-control" type="text" id="password" name="password" placeholder="qwerty123" >
+                                        <input class="form-control" type="password" id="password" name="password" placeholder="qwerty123" >
+                                        <div class="form-text">Минимум 8 символов</div>
                                     </div>
                                 </div>
 
                                 <div class="row align-items-center mb-3">
                                     <div class="col-sm-3">
-                                        <label class="form-label m-0" for="nickname">NickName</label>
+                                        <label class="form-label m-0" for="password-repeat">Repeat password</label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input class="form-control" type="text" id="password-repeat" name="nickname" placeholder=qwerty123">
+                                        <input class="form-control is-invalid" type="password" id="password-repeat" name="password-repeat" placeholder="qwerty123">
+                                        <div class="invalid-feedback">Пароли не совпадают</div>
                                     </div>
                                 </div>
 
@@ -99,7 +105,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                            </form>
 
                         </div>
                     </div>

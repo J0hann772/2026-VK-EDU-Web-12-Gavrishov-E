@@ -26,34 +26,39 @@
         <hr class="hr">
             <div class="row">
                 <h2 class="mb-3">New Question</h2>
-                <div class="col-md-8">
+                <form class="col-md-8" action="#" method="post">
+                    <div class="alert alert-danger">Не удалось создать вопрос, проверьте поля формы</div>
                     <div class="row mb-3 align-items-center">
-                        <label id = "default-text" for="exampleFormControlInput1" class="form-label col-sm-1 col-form-label">Title</label>
+                        <label id = "default-text" for="question-title" class="form-label col-sm-1 col-form-label">Title</label>
                         <div class="col-sm-11">
-                            <input type="email" class="form-control col-sm-10 text-input-question" id="exampleFormControlInput1" placeholder="How to create a Django project?">
+                            <input type="text" name="title" maxlength="100" class="form-control col-sm-10 text-input-question is-invalid" id="question-title" placeholder="How to create a Django project?">
+                            <div class="invalid-feedback">Заголовок не может быть пустым</div>
+                            <div class="form-text">До 100 символов</div>
                         </div>
-                        
+
                     </div>
                     <div class="row mb-3 align-items-center">
-                        <label id = "default-text" for="exampleFormControlTextarea1" class="form-label col-sm-1">Text</label>
+                        <label id = "default-text" for="question-text" class="form-label col-sm-1">Text</label>
                         <div class="col-sm-11">
-                            <textarea class="form-control text-input-question" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your question here..."></textarea>
+                            <textarea name="text" maxlength="2000" class="form-control text-input-question" id="question-text" rows="3" placeholder="Enter your question here..."></textarea>
+                            <div class="form-text">До 2000 символов</div>
                         </div>
-                        
+
                     </div>
                     <div class="row mb-3 align-items-center">
-                        <label id = "default-text" for="exampleFormControlTextarea1" class="form-label col-sm-1">Tags</label>
+                        <label id = "default-text" for="question-tags" class="form-label col-sm-1">Tags</label>
                         <div class="col-sm-11">
-                            <input class="form-control text-input-question" id="exampleFormControlTextarea1" placeholder="Enter tags separated by commas...">
+                            <input name="tags" class="form-control text-input-question" id="question-tags" placeholder="Enter tags separated by commas...">
+                            <div class="form-text">Не больше 3 тегов, через запятую</div>
                         </div>
                     </div>
                     <div class="row mb-3 align-items-center">
                         <div class="col-sm-1"></div>
                         <div class="col-sm-11">
-                            <button type="button" class="btn-pagin">ASK!</button>
+                            <button type="submit" class="btn-pagin">ASK!</button>
                         </div>
                     </div>
-                </div>
+                </form>
                 <div class="col-md-3 ms-auto">
                     <h3>Popular Tags</h3>
                     <div class="tags-cloud">
