@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Title</title>
-
-
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
-
-
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/style.css">
 </head>
@@ -24,12 +19,92 @@
             <h2><a href="/" class="logo-link">AskPupkin</a></h2>
             <div id="main-search">
                 <input class="search-input" type="text" name="username" placeholder="Search">
-                <input type="submit" value="ASK!" class="btn-search">
+                <input type="submit" value="ASK!"    class="btn-search">
             </div>
         </div>
         <hr class="hr">
         <div class="row">
             <div class="col-md-9">
+                <div class="login-form">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Обертка для всей формы -->
+                            <div class="settings-form">
+
+                                <!-- 1. Поле Login -->
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-sm-3">
+                                        <label class="form-label m-0" for="login">Login</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" type="text" id="login" name="login" placeholder="dr_pepper">
+                                    </div>
+                                </div>
+
+                                <!-- 2. Поле Email -->
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-sm-3">
+                                        <label class="form-label m-0" for="email">Email</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" type="email" id="email" name="email" placeholder="dr.pepper@mail.ru">
+                                    </div>
+                                </div>
+
+                                <!-- 3. Поле NickName -->
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-sm-3">
+                                        <label class="form-label m-0" for="nickname">NickName</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" type="text" id="nickname" name="nickname" placeholder="Dr. Pepper" >
+                                    </div>
+                                </div>
+
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-sm-3">
+                                        <label class="form-label m-0" for="nickname">Password</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" type="text" id="password" name="password" placeholder="qwerty123" >
+                                    </div>
+                                </div>
+
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-sm-3">
+                                        <label class="form-label m-0" for="nickname">NickName</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" type="text" id="password-repeat" name="nickname" placeholder=qwerty123">
+                                    </div>
+                                </div>
+
+                                <!-- 4. Секция загрузки аватара -->
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <label class="form-label pt-2" for="avatar-input">Upload avatar</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        
+                                        <!-- Стандартная кнопка выбора файла в стиле Bootstrap -->
+                                        <input class="form-control" type="file" id="avatar-input" name="avatar">
+                                    </div>
+                                </div>
+
+                                <!-- 5. Кнопка Save -->
+                                <div class="row mt-4">
+                                    <div class="col-sm-3"></div> <!-- Пустая колонка для сдвига кнопки -->
+                                    <div class="col-sm-6">
+                                        <button type="submit" class="btn-pagin  px-4">Register!</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="col-md-3 ms-auto">
                 <h3>Popular Tags</h3>
