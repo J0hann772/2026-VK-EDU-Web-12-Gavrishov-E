@@ -1,7 +1,7 @@
 services:
   django:
     build: .
-    command: python question-site/manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
