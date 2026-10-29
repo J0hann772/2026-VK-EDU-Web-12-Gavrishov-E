@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+def index(request):
+    return render(request,'questions/index.html')
+
+def base(request):
+    return render(request,'layouts/base.html') # test
+
+def question(request):
+    return render(request,'questions/question.html')

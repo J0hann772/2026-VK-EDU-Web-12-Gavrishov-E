@@ -1,39 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'layouts/base.html' %}
 
-    <title>Title</title>
+{% block title %} INDEX {% endblock %}
 
 
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../static/css/style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h2><a href="index.html" class="logo-link">AskPupkin</a></h2>
-            <div id="main-search">
-                <input class="search-input" type="text" name="username" placeholder="Search">
-                <input type="submit" value="ASK!" class="btn-search">
-            </div>
-            <div class="user-info">
-                <img src="../static/img/ava.png" alt="avatar" class="avatar">
-                <div>
-                    <p class="user-name">John Doe</p>
-                    <a href="settings.html">settings</a>
-                    <a href="logout.html">log out</a>
-                </div>            
-            </div>
-        </div>
-        <hr class="hr">
-    </div>
-       
-    
 
-    <main>
-    
+    {% block main %}
         <div class="container">
             
             
@@ -49,6 +20,7 @@
                 
                 
                 <div class="col-md-8">
+
                     <div class="list-questions">
                         
                         <div class="question-item mb-4 container">
@@ -129,15 +101,15 @@
                         <a href="#" class="tag-small">TechnoPark</a>
                         <br>
                         <a href="#" class="tag-large text-danger">MySQL</a>
-                        <a href="#" class="tag-large text-success">django</a> 
+                        <a href="#" class="tag-large text-success">django</a>
                         <br>
                         <a href="#" class="tag-small">Mail.Ru</a>
                         <a href="#" class="tag-small">Voloshin</a>
                         <a href="#" class="tag-small text-warning">Firefox</a>
                     </div>
-                    
+
                     <br>
-                    
+
                     <h3>Best Members</h3>
                     <div class="best-members d-flex flex-column gap-2">
                         <a href="#" class="member-link">John Doe</a>
@@ -147,7 +119,7 @@
                         <a href="#" class="member-link">Charlie Davis</a>
                         <a href="#" class="member-link">Eve Wilson</a>
                     </div>
-                </div> 
+                </div>
 
             </div> 
             <nav aria-label="Страницы вопросов">
@@ -160,14 +132,4 @@
                 </ul>
             </nav>
         </div> 
-        
-    </main>
-
-
-    <footer>
-        
-    </footer>
-
-
-</body>
-</html>
+    {% endblock %}
