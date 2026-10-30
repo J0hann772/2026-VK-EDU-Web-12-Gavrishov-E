@@ -1,152 +1,92 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-</head>
-<body>
+{% extends 'layouts/base.html' %}
 
+{% block title %}Register{% endblock %}
 
+{% block content %}
+    <div class="login-form">
+        <div class="container">
+            <div class="row">
+                <!-- Обертка для всей формы -->
+                <form class="settings-form" action="{% url 'core:signup' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
 
-<main>
+                    <div class="alert alert-danger">Не удалось зарегистрироваться, проверьте поля формы</div>
 
-    <div class="container">
-        <div class="header">
-            <h2><a href="/question-site/templates/static" class="logo-link">AskPupkin</a></h2>
-            <div id="main-search">
-                <input class="search-input" type="text" name="username" placeholder="Search">
-                <input type="submit" value="ASK!"    class="btn-search">
-            </div>
-        </div>
-        <hr class="hr">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="login-form">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Обертка для всей формы -->
-                            <form class="settings-form" action="#" method="post" enctype="multipart/form-data">
-
-                                <div class="alert alert-danger">Не удалось зарегистрироваться, проверьте поля формы</div>
-
-                                <!-- 1. Поле Login -->
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-sm-3">
-                                        <label class="form-label m-0" for="login">Login</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="text" id="login" name="login" maxlength="30" placeholder="dr_pepper">
-                                        <div class="form-text">До 30 символов</div>
-                                    </div>
-                                </div>
-
-                                <!-- 2. Поле Email -->
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-sm-3">
-                                        <label class="form-label m-0" for="email">Email</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input class="form-control is-invalid" type="email" id="email" name="email" placeholder="dr.pepper@mail.ru">
-                                        <div class="invalid-feedback">Введите корректный email</div>
-                                    </div>
-                                </div>
-
-                                <!-- 3. Поле NickName -->
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-sm-3">
-                                        <label class="form-label m-0" for="nickname">NickName</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="text" id="nickname" name="nickname" maxlength="30" placeholder="Dr. Pepper" >
-                                    </div>
-                                </div>
-
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-sm-3">
-                                        <label class="form-label m-0" for="password">Password</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="password" id="password" name="password" placeholder="qwerty123" >
-                                        <div class="form-text">Минимум 8 символов</div>
-                                    </div>
-                                </div>
-
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-sm-3">
-                                        <label class="form-label m-0" for="password-repeat">Repeat password</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input class="form-control is-invalid" type="password" id="password-repeat" name="password-repeat" placeholder="qwerty123">
-                                        <div class="invalid-feedback">Пароли не совпадают</div>
-                                    </div>
-                                </div>
-
-                                <!-- 4. Секция загрузки аватара -->
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <label class="form-label pt-2" for="avatar-input">Upload avatar</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        
-                                        <!-- Стандартная кнопка выбора файла в стиле Bootstrap -->
-                                        <input class="form-control" type="file" id="avatar-input" name="avatar">
-                                    </div>
-                                </div>
-
-                                <!-- 5. Кнопка Save -->
-                                <div class="row mt-4">
-                                    <div class="col-sm-3"></div> <!-- Пустая колонка для сдвига кнопки -->
-                                    <div class="col-sm-6">
-                                        <button type="submit" class="btn-pagin  px-4">Register!</button>
-                                    </div>
-                                </div>
-
-                            </form>
-
+                    <!-- 1. Поле Login -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="login">Login</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="login" name="login" maxlength="30" placeholder="dr_pepper">
+                            <div class="form-text">До 30 символов</div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-            <div class="col-md-3 ms-auto">
-                <h3>Popular Tags</h3>
-                <div class="tags-cloud">
-                    <a href="#" class="tag-small">perl</a>
-                    <a href="#" class="tag-medium text-danger">python</a>
-                    <a href="#" class="tag-small">TechnoPark</a>
-                    <br>
-                    <a href="#" class="tag-large text-danger">MySQL</a>
-                    <a href="#" class="tag-large text-success">django</a>
-                    <br>
-                    <a href="#" class="tag-small">Mail.Ru</a>
-                    <a href="#" class="tag-small">Voloshin</a>
-                    <a href="#" class="tag-small text-warning">Firefox</a>
-                </div>
-                <br>
-                <h3>Best Members</h3>
-                <div class="best-members d-flex flex-column gap-2">
-                    <a href="#" class="member-link">John Doe</a>
-                    <a href="#" class="member-link">Jane Smith</a>
-                    <a href="#" class="member-link">Alice Johnson</a>
-                    <a href="#" class="member-link">Bob Brown</a>
-                    <a href="#" class="member-link">Charlie Davis</a>
-                    <a href="#" class="member-link">Eve Wilson</a>
-                </div>
+                    <!-- 2. Поле Email -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="email">Email</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control is-invalid" type="email" id="email" name="email" placeholder="dr.pepper@mail.ru">
+                            <div class="invalid-feedback">Введите корректный email</div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Поле NickName -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="nickname">NickName</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="nickname" name="nickname" maxlength="30" placeholder="Dr. Pepper" >
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="password">Password</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="password" id="password" name="password" placeholder="qwerty123" >
+                            <div class="form-text">Минимум 8 символов</div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="password-repeat">Repeat password</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control is-invalid" type="password" id="password-repeat" name="password-repeat" placeholder="qwerty123">
+                            <div class="invalid-feedback">Пароли не совпадают</div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Секция загрузки аватара -->
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label pt-2" for="avatar-input">Upload avatar</label>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <!-- Стандартная кнопка выбора файла в стиле Bootstrap -->
+                            <input class="form-control" type="file" id="avatar-input" name="avatar">
+                        </div>
+                    </div>
+
+                    <!-- 5. Кнопка Save -->
+                    <div class="row mt-4">
+                        <div class="col-sm-3"></div> <!-- Пустая колонка для сдвига кнопки -->
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn-pagin  px-4">Register!</button>
+                        </div>
+                    </div>
+
+                </form>
+
             </div>
         </div>
     </div>
-
-</main>
-
-<footer>
-
-</footer>
-
-
-</body>
-</html>
+{% endblock %}

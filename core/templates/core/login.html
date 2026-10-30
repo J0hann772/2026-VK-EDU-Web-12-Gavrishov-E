@@ -1,103 +1,43 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-</head>
-<body>
+{% extends 'layouts/base.html' %}
 
+{% block title %}Log In{% endblock %}
 
-
-<main>
-
-    <div class="container">
-        <div class="header">
-            <h2><a href="/question-site/templates/static" class="logo-link">AskPupkin</a></h2>
-            <div id="main-search">
-                <input class="search-input" type="text" name="username" placeholder="Search">
-                <input type="submit" value="ASK!" class="btn-search">
-            </div>
-        </div>
-        <hr class="hr">
-        <div class="row">
-            <div class="col-md-9">
-                <div class="login-form">
-                    <div class="container">
-                        <div class="row">
-                            <h3>Log In</h3>
-                            <form action="#" method="post">
-                            <p class="alert-warning">Sorry, wrong password</p>
-                            <div class="d-flex align-items-center m-3">
-                                <div class="col-3">
-                                    <label for="username">Login</label>
-                                </div>
-                                <div class="col-9">
-                                    <input type="text" name="username" id="username" maxlength="30" placeholder="Enter Username">
-                                </div>
-
-                            </div>
-                            <div class="d-flex align-content-center  m-3">
-
-                                <div class="col-3">
-                                    <label for="password">Password</label>
-                                </div>
-                                <div class="col-6">
-                                    <input type="password" name="password" id="password" placeholder="Enter Password">
-                                    <div class="text-danger">Введите пароль</div>
-                                </div>
-
-                            </div>
-                            <div class="col-3"></div>
-                            <div class="col-9 p-4">
-                                <button type="submit" class="login-btn mb-3">Login</button>
-                                <a href="signup.html" class="">create new account?</a>
-                            </div>
-                            </form>
-
-                        </div>
+{% block content %}
+    <div class="login-form">
+        <div class="container">
+            <div class="row">
+                <h3>Log In</h3>
+                <form action="{% url 'core:login' %}" method="post">
+        {% csrf_token %}
+                <p class="alert-warning">Sorry, wrong password</p>
+                <div class="d-flex align-items-center m-3">
+                    <div class="col-3">
+                        <label for="username">Login</label>
                     </div>
+                    <div class="col-9">
+                        <input type="text" name="username" id="username" maxlength="30" placeholder="Enter Username">
+                    </div>
+
                 </div>
-                
-            </div>
-            <div class="col-md-3 ms-auto">
-                <h3>Popular Tags</h3>
-                <div class="tags-cloud">
-                    <a href="#" class="tag-small">perl</a>
-                    <a href="#" class="tag-medium text-danger">python</a>
-                    <a href="#" class="tag-small">TechnoPark</a>
-                    <br>
-                    <a href="#" class="tag-large text-danger">MySQL</a>
-                    <a href="#" class="tag-large text-success">django</a>
-                    <br>
-                    <a href="#" class="tag-small">Mail.Ru</a>
-                    <a href="#" class="tag-small">Voloshin</a>
-                    <a href="#" class="tag-small text-warning">Firefox</a>
+                <div class="d-flex align-content-center  m-3">
+
+                    <div class="col-3">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="password" name="password" id="password" placeholder="Enter Password">
+                        <div class="text-danger">Введите пароль</div>
+                    </div>
+
                 </div>
-                <br>
-                <h3>Best Members</h3>
-                <div class="best-members d-flex flex-column gap-2">
-                    <a href="#" class="member-link">John Doe</a>
-                    <a href="#" class="member-link">Jane Smith</a>
-                    <a href="#" class="member-link">Alice Johnson</a>
-                    <a href="#" class="member-link">Bob Brown</a>
-                    <a href="#" class="member-link">Charlie Davis</a>
-                    <a href="#" class="member-link">Eve Wilson</a>
+                <div class="col-3"></div>
+                <div class="col-9 p-4">
+                    <button type="submit" class="login-btn mb-3">Login</button>
+                    <a href="{% url 'core:signup' %}" class="">create new account?</a>
                 </div>
+                </form>
+
             </div>
         </div>
     </div>
-
-</main>
-
-<footer>
-
-</footer>
-
-
-</body>
-</html>
+{% endblock %}

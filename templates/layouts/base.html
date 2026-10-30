@@ -5,31 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title%} {% endblock %}</title>
-
+    <title>{% block title %}AskPupkin{% endblock %}</title>
 
     <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-
 </head>
 <body>
-    
+    {% include 'includes/input-question.html' %}
 
-    
     <main>
-        {% include 'includes/input-question.html' %}
-        {% block main%} {% endblock %}
-
-
-
-
-        
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    {% block content %}{% endblock %}
+                </div>
+                <div class="col-md-3 ms-auto">
+                    {% include 'includes/sidebar.html' %}
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
 
     </footer>
-
-
 </body>
 </html>

@@ -1,10 +1,15 @@
-
 <div class="container" style="margin-top: 20px;">
-
-    <h2><a href="/question-site/templates/static" class="logo-link">AskPupkin</a></h2>
-    <div id="main-search">
-        <input class="search-input" type="text" name="username" placeholder="Search">
-        <input type="submit" value="ASK!" class="btn-search">
+    <div class="header">
+        <h2><a href="{% url 'questions:index' %}" class="logo-link">AskPupkin</a></h2>
+        <form id="main-search" action="{% url 'questions:ask' %}" method="get">
+            <input class="search-input" type="text" placeholder="Search">
+            <input type="submit" value="ASK!" class="btn-search">
+        </form>
+        <div class="user-info">
+            <a href="{% url 'core:login' %}">Log in</a>
+            <a href="{% url 'core:signup' %}">Register</a>
+            <a href="{% url 'core:profile' %}">Settings</a>
+        </div>
     </div>
 </div>
 <hr class="hr">

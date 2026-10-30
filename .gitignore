@@ -1,7 +1,23 @@
+# виртуальное окружение
+venv/
+.venv/
+
+# python
+__pycache__/
+*.pyc
+
+# django (слеш в начале - только папки в корне, чтобы не скрыть core/static и questions/static)
+db.sqlite3
+*.sqlite3
+/media/
+/static/
+
+# IDE и система
 .idea/
 .vscode/
-__pycache__/
 .DS_Store
+
+# переменные окружения
+.env
+
 *.log
-*.sqlite3
-.venv
