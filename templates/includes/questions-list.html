@@ -1,0 +1,7 @@
+{% for question in page %}
+    {% include 'includes/question-card.html' with question=question %}
+{% empty %}
+    <p>Вопросов нет</p>
+{% endfor %}
+
+{% include 'includes/pagination.html' %}

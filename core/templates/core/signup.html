@@ -1,0 +1,92 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <div class="login-form">
+        <div class="container">
+            <div class="row">
+                <!-- Обертка для всей формы -->
+                <form class="settings-form" action="{% url 'core:signup' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+                    <div class="alert alert-danger">Не удалось зарегистрироваться, проверьте поля формы</div>
+
+                    <!-- 1. Поле Login -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="login">Login</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="login" name="login" maxlength="30" placeholder="dr_pepper">
+                            <div class="form-text">До 30 символов</div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Поле Email -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="email">Email</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control is-invalid" type="email" id="email" name="email" placeholder="dr.pepper@mail.ru">
+                            <div class="invalid-feedback">Введите корректный email</div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Поле NickName -->
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="nickname">NickName</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" id="nickname" name="nickname" maxlength="30" placeholder="Dr. Pepper" >
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="password">Password</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="password" id="password" name="password" placeholder="qwerty123" >
+                            <div class="form-text">Минимум 8 символов</div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label m-0" for="password-repeat">Repeat password</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control is-invalid" type="password" id="password-repeat" name="password-repeat" placeholder="qwerty123">
+                            <div class="invalid-feedback">Пароли не совпадают</div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Секция загрузки аватара -->
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                            <label class="form-label pt-2" for="avatar-input">Upload avatar</label>
+                        </div>
+                        <div class="col-sm-6">
+
+                            <!-- Стандартная кнопка выбора файла в стиле Bootstrap -->
+                            <input class="form-control" type="file" id="avatar-input" name="avatar">
+                        </div>
+                    </div>
+
+                    <!-- 5. Кнопка Save -->
+                    <div class="row mt-4">
+                        <div class="col-sm-3"></div> <!-- Пустая колонка для сдвига кнопки -->
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn-pagin  px-4">Register!</button>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

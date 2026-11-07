@@ -1,0 +1,27 @@
+{% load static %}
+<div class="question-item mb-4 container">
+    <div class="row">
+        <div class="col-md-2">
+            <img src="{% static 'core/img/author1.png' %}" alt="avatar" class="question-avatar mb-2">
+            <div class="custom-spinner">
+                <input type="text" id="spinner-input" value="5" readonly>
+                <div class="spinner-buttons">
+                    <button class="spin-up" id="spin-up">&#9650;</button>
+                    <button class="spin-down" id="spin-down">&#9660;</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <h4><a href="{% url 'questions:question' question.id %}">{{ question.title }}</a></h4>
+            <p class="text-question">{{ question.text }}</p>
+            <div class="d-flex gap-4">
+                <a href="{% url 'questions:question' question.id %}">answer ({{ question.answers_count }})</a>
+                <p>Tags:
+                    {% for tag in question.tags %}
+                        <a href="{% url 'questions:tag' tag %}" class="link">{{ tag }}</a>
+                    {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

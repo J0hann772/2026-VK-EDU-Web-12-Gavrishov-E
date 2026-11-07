@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Tag: {{ tag }}{% endblock %}
+
+{% block content %}
+    <div class="d-flex align-items-center gap-4 mb-4">
+        <h3 class="mb-0">Tag: {{ tag }}</h3>
+        <a class="link" href="{% url 'questions:index' %}">New Questions</a>
+    </div>
+
+    {% include 'includes/questions-list.html' %}
+{% endblock %}

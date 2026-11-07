@@ -1,0 +1,260 @@
+* { margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+
+ }
+
+.header {
+    /*background-color: #f1f1f1;*/
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.search-input {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    height: 30px;
+    width: 400px;
+    cursor: text;
+}
+
+#main-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+.btn-search {
+    background-color: #249b06;
+    color: white;
+    box-shadow: 3px 3px 3px rgb(3, 0, 0);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #249b06;
+    box-shadow: 0 0 5px #249b06;
+}
+
+.search-input::placeholder {
+    color: #999;
+    font-style: italic;
+    
+}
+
+.btn-search:hover {
+    background-color: #1e7a05;
+    
+}
+
+.btn-search:active {
+    background-color: #15997c;
+}
+
+.hr {
+    border-top: 2px gray solid;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.avatar-main {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.user-name {
+    margin-bottom: 2px;
+}
+
+.link {
+    font-size: 16px;
+}
+
+.text-question {
+    font-size: 20px;
+}
+
+.tag-small{
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+.tag-medium{
+    text-decoration: none;
+    font-size: 20px;
+    margin: 4px;
+}
+
+.tag-large{
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.text-danger{
+    color: red;
+}
+
+.text-green{
+    color: green;
+}
+
+.text-yellow{
+    color: orange;
+}
+.question-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+
+
+/* Общий контейнер счетчика */
+.custom-spinner {
+  display: inline-flex;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: monospace; /* Для четкого отображения цифр */
+  height: 40px;
+    width: 75px;
+}
+
+/* Поле с числом (левая часть) */
+#spinner-input {
+  width: 45px;
+  border: none;
+  border-right: 2px solid #000000;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  background: #ffffff;
+  cursor: text;
+}
+
+/* Контейнер для кнопок (правая часть) */
+.spinner-buttons {
+  display: flex;
+  flex-direction: column;
+  width: 25px;
+}
+
+/* Общие стили для стрелочек */
+.spinner-buttons button {
+  flex: 1;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.1s;
+}
+
+/* Разделительная линия между верхней и нижней стрелкой */
+.spin-up {
+  border-bottom: 1px solid #000000 !important;
+}
+
+/* Эффект при наведении на стрелочку */
+.spinner-buttons button:hover {
+  background: #eeeeee;
+}
+
+.question-item {
+    padding: 10px;
+    border: 3px solid #050101;
+    margin-bottom: 10px;
+}
+
+.btn-pagin {
+    border: 2px black solid;
+    padding: 6px 12px;
+    box-shadow: 3px 3px 3px rgb(3, 0, 0);
+    text-decoration: none;
+    color: black;
+}
+
+.btn-pagin:hover {
+    background-color: #a9aca9;
+    color: white;
+}
+
+.btn-pagin:active {
+    background-color: #4e504e;
+    color: white;
+}
+
+.text-input-question {
+    font-size: 20px;
+    cursor: text;
+
+}
+
+#default-text {
+    color: #000000;
+    font-size: 20px;
+}
+
+.card{
+    border: 1px solid #000000;
+    padding: 10px;
+    margin: 15px;
+}
+
+.user-answer-input{
+    height: 120px;
+
+    #display: block;
+    color: black;
+    #box-sizing: border-box;
+    font-size: 16px;
+}
+
+.login-btn {
+    display: flex;
+    width: auto;
+}
+
+.login-btn:hover {
+    display: flex;
+    width: auto;
+    background-color: #5c636a;
+    color: white;
+}
+
+.login-btn:active {
+    display: flex;
+    width: auto;
+    background-color: #2c3034;
+    color: white;
+    
+}
+
