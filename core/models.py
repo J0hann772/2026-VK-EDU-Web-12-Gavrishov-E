@@ -1,6 +1,15 @@
+from pathlib import Path
+import uuid
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.templatetags.static import static
+
+
+def avatar_upload_path(instance, filename):
+    """Генерирует неперебираемое имя файла аватарки в MEDIA_ROOT/avatars/."""
+    ext = Path(filename).suffix.lower() or '.png'
+    return f'avatars/{uuid.uuid4().hex}{ext}'
 
 
 class Profile(models.Model):
@@ -16,7 +25,7 @@ class Profile(models.Model):
         verbose_name='Никнейм',
     )
     avatar = models.ImageField(
-        upload_to='avatars/%Y/%m/%d/',
+        upload_to=avatar_upload_path,
         blank=True,
         null=True,
         verbose_name='Аватар',

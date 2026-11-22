@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,7 @@
 
     <main>
         <div class="container">
+            <div id="ajax-error-box" class="alert alert-danger d-none" role="alert"></div>
             <div class="row">
                 <div class="col-md-9">
                     {% block content %}{% endblock %}
@@ -29,5 +30,7 @@
     <footer>
 
     </footer>
+
+    <script src="{% static 'core/js/main.js' %}"></script>
 </body>
 </html>

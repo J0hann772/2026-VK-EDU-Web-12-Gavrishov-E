@@ -8,11 +8,32 @@
             <div class="row">
                 <div class="col-md-3">
                     <img src="{{ question.get_author_avatar_url }}" alt="avatar-main" class="avatar-main mb-4">
-                    <div class="custom-spinner">
-                        <input type="text" class="spinner-input" value="{{ question.rating }}" readonly>
+                    <div class="custom-spinner js-vote-box">
+                        <input type="text" class="spinner-input js-rating-input" value="{{ question.rating }}" readonly>
                         <div class="spinner-buttons">
-                            <button type="button" class="spin-up">&#9650;</button>
-                            <button type="button" class="spin-down">&#9660;</button>
+                            {% if request.user.is_authenticated %}
+                                <button
+                                    type="button"
+                                    class="spin-up js-vote-btn {% if question.user_vote == 1 %}active-vote{% endif %}"
+                                    data-url="{% url 'questions:like_question' %}"
+                                    data-param="question_id"
+                                    data-object-id="{{ question.id }}"
+                                    data-value="1"
+                                    {% if question.user_vote == 1 %}disabled title="Вы уже поставили лайк"{% else %}title="Поставить лайк"{% endif %}
+                                >&#9650;</button>
+                                <button
+                                    type="button"
+                                    class="spin-down js-vote-btn {% if question.user_vote == -1 %}active-vote{% endif %}"
+                                    data-url="{% url 'questions:like_question' %}"
+                                    data-param="question_id"
+                                    data-object-id="{{ question.id }}"
+                                    data-value="-1"
+                                    {% if question.user_vote == -1 %}disabled title="Вы уже поставили дизлайк"{% else %}title="Поставить дизлайк"{% endif %}
+                                >&#9660;</button>
+                            {% else %}
+                                <button type="button" class="spin-up" disabled title="Войдите, чтобы оценивать вопросы">&#9650;</button>
+                                <button type="button" class="spin-down" disabled title="Войдите, чтобы оценивать вопросы">&#9660;</button>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -39,16 +60,37 @@
 
     <div class="answers-list">
         {% for answer in page %}
-            <div class="answer-card card">
+            <div class="answer-card card" id="answer-{{ answer.id }}">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
                             <img src="{{ answer.get_author_avatar_url }}" alt="avatar-main" class="avatar-main mb-4">
-                            <div class="custom-spinner">
-                                <input type="text" class="spinner-input" value="{{ answer.rating }}" readonly>
+                            <div class="custom-spinner js-vote-box">
+                                <input type="text" class="spinner-input js-rating-input" value="{{ answer.rating }}" readonly>
                                 <div class="spinner-buttons">
-                                    <button type="button" class="spin-up">&#9650;</button>
-                                    <button type="button" class="spin-down">&#9660;</button>
+                                    {% if request.user.is_authenticated %}
+                                        <button
+                                            type="button"
+                                            class="spin-up js-vote-btn {% if answer.user_vote == 1 %}active-vote{% endif %}"
+                                            data-url="{% url 'questions:like_answer' %}"
+                                            data-param="answer_id"
+                                            data-object-id="{{ answer.id }}"
+                                            data-value="1"
+                                            {% if answer.user_vote == 1 %}disabled title="Вы уже поставили лайк"{% else %}title="Поставить лайк"{% endif %}
+                                        >&#9650;</button>
+                                        <button
+                                            type="button"
+                                            class="spin-down js-vote-btn {% if answer.user_vote == -1 %}active-vote{% endif %}"
+                                            data-url="{% url 'questions:like_answer' %}"
+                                            data-param="answer_id"
+                                            data-object-id="{{ answer.id }}"
+                                            data-value="-1"
+                                            {% if answer.user_vote == -1 %}disabled title="Вы уже поставили дизлайк"{% else %}title="Поставить дизлайк"{% endif %}
+                                        >&#9660;</button>
+                                    {% else %}
+                                        <button type="button" class="spin-up" disabled title="Войдите, чтобы оценивать ответы">&#9650;</button>
+                                        <button type="button" class="spin-down" disabled title="Войдите, чтобы оценивать ответы">&#9660;</button>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -57,8 +99,36 @@
                                 <p class="text-muted small mb-2">Автор: {{ answer.get_author_name }}</p>
                                 <p class="question-text">{{ answer.text }}</p>
                                 <div>
-                                    <input type="checkbox" id="valid{{ answer.id }}" name="correct" value="valid" {% if answer.is_correct %}checked{% endif %} disabled>
-                                    <label for="valid{{ answer.id }}">Correct!</label>
+                                    {% if request.user.is_authenticated and request.user.pk == question.author_id %}
+                                        <input
+                                            type="checkbox"
+                                            class="js-correct-checkbox"
+                                            id="valid{{ answer.id }}"
+                                            data-url="{% url 'questions:mark_correct_answer' %}"
+                                            data-question-id="{{ question.id }}"
+                                            data-answer-id="{{ answer.id }}"
+                                            {% if answer.is_correct %}checked{% endif %}
+                                        >
+                                        <label for="valid{{ answer.id }}">Correct!</label>
+                                    {% elif request.user.is_authenticated %}
+                                        <input
+                                            type="checkbox"
+                                            id="valid{{ answer.id }}"
+                                            {% if answer.is_correct %}checked{% endif %}
+                                            disabled
+                                            title="Отмечать правильный ответ может только автор вопроса"
+                                        >
+                                        <label for="valid{{ answer.id }}" title="Отмечать правильный ответ может только автор вопроса">Correct!</label>
+                                    {% else %}
+                                        <input
+                                            type="checkbox"
+                                            id="valid{{ answer.id }}"
+                                            {% if answer.is_correct %}checked{% endif %}
+                                            disabled
+                                            title="Войдите как автор вопроса, чтобы отметить правильный ответ"
+                                        >
+                                        <label for="valid{{ answer.id }}" title="Войдите как автор вопроса, чтобы отметить правильный ответ">Correct!</label>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
@@ -76,12 +146,25 @@
 
     {% include 'includes/pagination.html' %}
 
-    <form class="user-answer card p-0" action="{{ question.get_absolute_url }}" method="post">
-        {% csrf_token %}
-        <textarea class="user-answer-input form-control" name="user-answer" id="user-answer" maxlength="1000" placeholder="Enter your answer here..." aria-describedby="answer-hint"></textarea>
-        <div id="answer-hint" class="form-text px-2">До 1000 символов</div>
-        <div class="p-2">
-            <button type="submit" class="btn-pagin">Answer!</button>
+    {% if request.user.is_authenticated %}
+        <form class="user-answer card p-2" action="{{ question.get_absolute_url }}" method="post" novalidate>
+            {% csrf_token %}
+            {{ form.text }}
+            <div class="form-text">До 2000 символов</div>
+            {% for error in form.text.errors %}
+                <div class="invalid-feedback d-block">{{ error }}</div>
+            {% endfor %}
+            <div class="pt-2">
+                <button type="submit" class="btn-pagin">Answer!</button>
+            </div>
+        </form>
+    {% else %}
+        <div class="user-answer card p-3">
+            <textarea class="user-answer-input form-control mb-2" disabled placeholder="Войдите, чтобы оставить ответ..." title="Войдите, чтобы оставить ответ"></textarea>
+            <div class="d-flex align-items-center gap-3">
+                <button type="button" class="btn-pagin" disabled title="Войдите, чтобы оставить ответ">Answer!</button>
+                <a href="{% url 'core:login' %}?next={{ request.get_full_path|urlencode }}">Войдите, чтобы ответить на вопрос</a>
+            </div>
         </div>
-    </form>
+    {% endif %}
 {% endblock %}

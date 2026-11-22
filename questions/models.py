@@ -61,6 +61,24 @@ class QuestionManager(models.Manager):
             return self.with_related().filter(tags=tag).order_by('-created_at', '-id')
         return self.with_related().filter(tags__name=tag).order_by('-created_at', '-id')
 
+    def attach_user_votes(self, questions, user):
+        """Одним запросом проставляет user_vote (1, -1 или 0) всем вопросам на странице."""
+        question_list = list(questions)
+        if not user.is_authenticated or not question_list:
+            for q in question_list:
+                q.user_vote = 0
+            return question_list
+
+        votes = dict(
+            QuestionLike.objects.filter(
+                user=user,
+                question_id__in=[q.pk for q in question_list],
+            ).values_list('question_id', 'value')
+        )
+        for q in question_list:
+            q.user_vote = votes.get(q.pk, 0)
+        return question_list
+
 
 class Question(models.Model):
     title = models.CharField(
@@ -128,6 +146,24 @@ class AnswerManager(models.Manager):
             .order_by('-is_correct', '-rating', 'created_at', 'id')
         )
 
+    def attach_user_votes(self, answers, user):
+        """Одним запросом проставляет user_vote (1, -1 или 0) всем ответам на странице."""
+        answer_list = list(answers)
+        if not user.is_authenticated or not answer_list:
+            for a in answer_list:
+                a.user_vote = 0
+            return answer_list
+
+        votes = dict(
+            AnswerLike.objects.filter(
+                user=user,
+                answer_id__in=[a.pk for a in answer_list],
+            ).values_list('answer_id', 'value')
+        )
+        for a in answer_list:
+            a.user_vote = votes.get(a.pk, 0)
+        return answer_list
+
 
 class Answer(models.Model):
     question = models.ForeignKey(
@@ -181,6 +217,18 @@ class Answer(models.Model):
         if profile and profile.avatar:
             return profile.avatar.url
         return static('core/img/author1.png')
+
+    def get_page_url(self, per_page=5):
+        """Возвращает URL страницы вопроса с номером страницы ответа и якорем."""
+        answer_ids = list(
+            Answer.objects.for_question(self.question).values_list('id', flat=True)
+        )
+        try:
+            index = answer_ids.index(self.pk)
+        except ValueError:
+            index = 0
+        page_num = index // per_page + 1
+        return f'{self.question.get_absolute_url()}?page={page_num}#answer-{self.pk}'
 
 
 class QuestionLike(models.Model):

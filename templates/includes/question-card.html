@@ -2,11 +2,32 @@
     <div class="row">
         <div class="col-md-2">
             <img src="{{ question.get_author_avatar_url }}" alt="avatar" class="question-avatar mb-2">
-            <div class="custom-spinner">
-                <input type="text" class="spinner-input" value="{{ question.rating }}" readonly>
+            <div class="custom-spinner js-vote-box">
+                <input type="text" class="spinner-input js-rating-input" value="{{ question.rating }}" readonly>
                 <div class="spinner-buttons">
-                    <button type="button" class="spin-up">&#9650;</button>
-                    <button type="button" class="spin-down">&#9660;</button>
+                    {% if request.user.is_authenticated %}
+                        <button
+                            type="button"
+                            class="spin-up js-vote-btn {% if question.user_vote == 1 %}active-vote{% endif %}"
+                            data-url="{% url 'questions:like_question' %}"
+                            data-param="question_id"
+                            data-object-id="{{ question.id }}"
+                            data-value="1"
+                            {% if question.user_vote == 1 %}disabled title="Вы уже поставили лайк"{% else %}title="Поставить лайк"{% endif %}
+                        >&#9650;</button>
+                        <button
+                            type="button"
+                            class="spin-down js-vote-btn {% if question.user_vote == -1 %}active-vote{% endif %}"
+                            data-url="{% url 'questions:like_question' %}"
+                            data-param="question_id"
+                            data-object-id="{{ question.id }}"
+                            data-value="-1"
+                            {% if question.user_vote == -1 %}disabled title="Вы уже поставили дизлайк"{% else %}title="Поставить дизлайк"{% endif %}
+                        >&#9660;</button>
+                    {% else %}
+                        <button type="button" class="spin-up" disabled title="Войдите, чтобы оценивать вопросы">&#9650;</button>
+                        <button type="button" class="spin-down" disabled title="Войдите, чтобы оценивать вопросы">&#9660;</button>
+                    {% endif %}
                 </div>
             </div>
         </div>

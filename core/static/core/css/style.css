@@ -184,8 +184,38 @@
 }
 
 /* Эффект при наведении на стрелочку */
-.spinner-buttons button:hover {
+.spinner-buttons button:hover:not(:disabled) {
   background: #eeeeee;
+}
+
+.spinner-buttons button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.spinner-buttons button.active-vote {
+  background: #d1e7dd;
+  color: #0f5132;
+  opacity: 1;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.default-text {
+  color: #000000;
+  font-size: 18px;
+}
+
+.avatar {
+  object-fit: cover;
+}
+
+.question-avatar,
+.avatar-main {
+  object-fit: cover;
 }
 
 .question-item {
