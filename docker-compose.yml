@@ -1,11 +1,38 @@
 services:
+  db:
+    image: postgres:16-alpine
+    env_file:
+      - .env.docker
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - askpupkin_net
+
   web:
     build: .
+    env_file:
+      - .env.docker
     ports:
       - "8000:8000"
-    environment:
-      - SECRET_KEY=${SECRET_KEY:-django-insecure-change-me}
-      - DEBUG=${DEBUG:-True}
     volumes:
       - .:/app
-      - ./media:/app/media
+    depends_on:
+      db:
+        condition: service_healthy
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    networks:
+      - askpupkin_net
+
+volumes:
+  postgres_data:
+
+networks:
+  askpupkin_net:
+    driver: bridge

@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Страница не найдена (404){% endblock %}
+
+{% block content %}
+    <div class="alert alert-warning">
+        <h3>404 — Страница не найдена</h3>
+        <p class="mb-3">Запрашиваемый вопрос, тег или страница не существуют.</p>
+        <a href="{% url 'questions:index' %}" class="btn btn-outline-dark">Вернуться на главную</a>
+    </div>
+{% endblock %}

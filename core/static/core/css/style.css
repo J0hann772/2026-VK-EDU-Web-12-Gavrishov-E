@@ -144,7 +144,7 @@
 }
 
 /* Поле с числом (левая часть) */
-#spinner-input {
+.spinner-input {
   width: 45px;
   border: none;
   border-right: 2px solid #000000;
@@ -231,10 +231,7 @@
 
 .user-answer-input{
     height: 120px;
-
-    #display: block;
     color: black;
-    #box-sizing: border-box;
     font-size: 16px;
 }
 

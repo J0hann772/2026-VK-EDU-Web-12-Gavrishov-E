@@ -19,5 +19,7 @@ db.sqlite3
 
 # переменные окружения
 .env
+.env.local
+.env.docker
 
 *.log

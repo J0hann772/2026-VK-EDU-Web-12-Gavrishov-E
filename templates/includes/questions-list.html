@@ -1,7 +1,9 @@
 {% for question in page %}
     {% include 'includes/question-card.html' with question=question %}
 {% empty %}
-    <p>Вопросов нет</p>
+    <div class="alert alert-light border">
+        {{ empty_message|default:"Пока нет ни одного вопроса" }}
+    </div>
 {% endfor %}
 
 {% include 'includes/pagination.html' %}

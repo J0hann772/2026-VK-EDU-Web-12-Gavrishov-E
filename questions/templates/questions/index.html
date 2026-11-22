@@ -8,5 +8,5 @@
         <a class="link" href="{% url 'questions:hot' %}">Hot Questions</a>
     </div>
 
-    {% include 'includes/questions-list.html' %}
+    {% include 'includes/questions-list.html' with empty_message="Пока нет ни одного вопроса" %}
 {% endblock %}

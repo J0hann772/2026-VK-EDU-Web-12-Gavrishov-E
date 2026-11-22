@@ -1,23 +1,17 @@
 <h3>Popular Tags</h3>
-<div class="tags-cloud">
-    <a href="{% url 'questions:tag' 'perl' %}" class="tag-small">perl</a>
-    <a href="{% url 'questions:tag' 'python' %}" class="tag-medium text-danger">python</a>
-    <a href="{% url 'questions:tag' 'TechnoPark' %}" class="tag-small">TechnoPark</a>
-    <br>
-    <a href="{% url 'questions:tag' 'MySQL' %}" class="tag-large text-danger">MySQL</a>
-    <a href="{% url 'questions:tag' 'django' %}" class="tag-large text-success">django</a>
-    <br>
-    <a href="{% url 'questions:tag' 'Mail.Ru' %}" class="tag-small">Mail.Ru</a>
-    <a href="{% url 'questions:tag' 'Voloshin' %}" class="tag-small">Voloshin</a>
-    <a href="{% url 'questions:tag' 'Firefox' %}" class="tag-small text-warning">Firefox</a>
+<div class="tags-cloud d-flex flex-wrap gap-2">
+    {% for tag in popular_tags %}
+        <a href="{{ tag.get_absolute_url }}" class="tag-small">{{ tag.name }}</a>
+    {% empty %}
+        <p class="text-muted mb-0">Тегов пока нет</p>
+    {% endfor %}
 </div>
 <br>
 <h3>Best Members</h3>
 <div class="best-members d-flex flex-column gap-2">
-    <a href="#" class="member-link">John Doe</a>
-    <a href="#" class="member-link">Jane Smith</a>
-    <a href="#" class="member-link">Alice Johnson</a>
-    <a href="#" class="member-link">Bob Brown</a>
-    <a href="#" class="member-link">Charlie Davis</a>
-    <a href="#" class="member-link">Eve Wilson</a>
+    {% for member in best_members %}
+        <span class="member-link">{{ member.profile.nickname|default:member.username }}</span>
+    {% empty %}
+        <p class="text-muted mb-0">Пользователей пока нет</p>
+    {% endfor %}
 </div>
